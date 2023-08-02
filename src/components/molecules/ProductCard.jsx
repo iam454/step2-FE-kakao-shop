@@ -27,10 +27,7 @@ const ProductCard = ({ product }) => {
   return (
     <Card to={`${staticServerUri}/products/${product.id}`}>
       <Container>
-        <Photo
-          src={`${staticServerUri}${product.image}`}
-          alt={product.productName}
-        />
+        <Photo src={product.image} alt={product.productName} />
         <ProductName>{product.productName}</ProductName>
         <ProductPrice>{`${product.price.toLocaleString()}원`}</ProductPrice>
       </Container>
