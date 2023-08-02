@@ -55,6 +55,8 @@ const OrderRow = styled.button`
   }
 `;
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const CartList = ({ cart }) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -62,7 +64,7 @@ const CartList = ({ cart }) => {
 
   const { mutate } = useMutation(updateCart, {
     onSuccess: () => {
-      navigate("/order");
+      navigate(`${staticServerUri}/order`);
     },
 
     onError: (error) => {

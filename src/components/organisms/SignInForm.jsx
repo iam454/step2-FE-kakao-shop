@@ -24,6 +24,8 @@ const Container = styled.form`
   }
 `;
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const SignInForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -42,7 +44,7 @@ const SignInForm = () => {
         message: "이메일(아이디) 혹은 비밀번호가 일치하지 않습니다.",
       });
     } else {
-      navigate("/");
+      navigate(`${staticServerUri}/`);
     }
   };
 

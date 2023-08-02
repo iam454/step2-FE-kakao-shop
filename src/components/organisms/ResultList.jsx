@@ -52,6 +52,8 @@ const StyledButton = styled.button`
   }
 `;
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const ResultList = ({ result }) => {
   const orderItems = result.data.response.products;
   const totalPrice = result.data.response.totalPrice;
@@ -71,7 +73,7 @@ const ResultList = ({ result }) => {
               <span>{totalPrice.toLocaleString()}원</span>
             </Price>
           </PriceRow>
-          <StyledButton onClick={() => navigate("/")}>
+          <StyledButton onClick={() => navigate(`${staticServerUri}/`)}>
             쇼핑 계속하기
           </StyledButton>
         </ResultContainer>

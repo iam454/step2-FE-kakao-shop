@@ -9,12 +9,14 @@ const StyledUl = styled.ul`
   column-gap: 12px;
 `;
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const Nav = () => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
   return (
     <StyledUl>
-      <Link to="/cart">
+      <Link to={`${staticServerUri}/cart`}>
         <img src="../../../assets/cart.png" alt="장바구니" width={28} />
       </Link>
       {isLoggedIn ? (
@@ -32,10 +34,10 @@ const Nav = () => {
       ) : (
         <>
           <li>
-            <Link to="/signin">로그인</Link>
+            <Link to={`${staticServerUri}/signin`}>로그인</Link>
           </li>
           <li>
-            <Link to="/signup">회원가입</Link>
+            <Link to={`${staticServerUri}/signup`}>회원가입</Link>
           </li>
         </>
       )}

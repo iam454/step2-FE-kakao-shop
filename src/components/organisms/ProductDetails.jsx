@@ -16,6 +16,8 @@ const Container = styled.div`
   width: 100%;
 `;
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const ProductDetails = () => {
   const productId = useParams();
   const navigate = useNavigate();
@@ -28,7 +30,7 @@ const ProductDetails = () => {
       // 상품을 찾을 수 없는 경우: 사용자에게 alert로 문제를 알리고, 홈 화면으로 리다이렉트
       if (error.response.status === 404) {
         alert("선택한 상품을 찾을 수 없습니다.");
-        navigate("/");
+        navigate(`${staticServerUri}/`);
         return;
       }
       // 사용자에게 alert로 문제를 알리고, refetch를 통해 계속 페칭

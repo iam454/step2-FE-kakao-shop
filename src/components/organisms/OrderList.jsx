@@ -69,6 +69,8 @@ const OrderRow = styled.button`
   }
 `;
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const OrderList = ({ cart }) => {
   const cartItems = cart.data.response.products;
   const totalPrice = cart.data.response.totalPrice;
@@ -82,7 +84,7 @@ const OrderList = ({ cart }) => {
   const { mutate } = useMutation(orderCart, {
     onSuccess: (res) => {
       const orderId = res.data.response.id;
-      navigate(`/orders/${orderId}`);
+      navigate(`${staticServerUri}/orders/${orderId}`);
     },
 
     onError: (error) => {

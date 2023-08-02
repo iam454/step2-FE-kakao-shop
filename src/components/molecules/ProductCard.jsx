@@ -21,9 +21,11 @@ const ProductPrice = styled.p`
   font-weight: 600;
 `;
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const ProductCard = ({ product }) => {
   return (
-    <Card to={`/products/${product.id}`}>
+    <Card to={`${staticServerUri}/products/${product.id}`}>
       <Container>
         <Photo
           src={`${process.env.REACT_APP_BASE_URL}${product.image}`}

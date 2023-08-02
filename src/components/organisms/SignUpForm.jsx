@@ -42,6 +42,8 @@ const Row = styled.div`
   }
 `;
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const SignUpForm = () => {
   const [isEmailValid, setIsEmailValid] = useState(false);
   const navigate = useNavigate();
@@ -153,7 +155,7 @@ const SignUpForm = () => {
         username,
         password,
       });
-      navigate("/");
+      navigate(`${staticServerUri}/`);
     } catch (error) {
       // 에러 발생 상황 뭐가 있을까 생각해보기
       const errorMsg = error.response.data.error.message;

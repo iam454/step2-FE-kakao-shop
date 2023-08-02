@@ -77,6 +77,8 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 function App() {
   removeTokenByExpiration();
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
@@ -86,28 +88,49 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/signin" element={<SignInPage />}></Route>
-          <Route path="/signup" element={<SignUpPage />}></Route>
+          <Route path={`${staticServerUri}/`} element={<HomePage />}></Route>
           <Route
-            path="/cart"
+            path={`${staticServerUri}/signin`}
+            element={<SignInPage />}
+          ></Route>
+          <Route
+            path={`${staticServerUri}/signup`}
+            element={<SignUpPage />}
+          ></Route>
+          <Route
+            path={`${staticServerUri}/cart`}
             element={
-              isLoggedIn ? <CartPage /> : <Navigate to="/signin" replace />
+              isLoggedIn ? (
+                <CartPage />
+              ) : (
+                <Navigate to={`${staticServerUri}/signin`} replace />
+              )
             }
           ></Route>
           <Route
-            path="/order"
+            path={`${staticServerUri}/order`}
             element={
-              isLoggedIn ? <OrderPage /> : <Navigate to="/signin" replace />
+              isLoggedIn ? (
+                <OrderPage />
+              ) : (
+                <Navigate to={`${staticServerUri}/signin`} replace />
+              )
             }
           ></Route>
           <Route
-            path="/orders/:id"
+            path={`${staticServerUri}/orders/:id`}
             element={
-              isLoggedIn ? <ResultPage /> : <Navigate to="/signin" replace />
+              isLoggedIn ? (
+                <ResultPage />
+              ) : (
+                <Navigate to={`${staticServerUri}/signin`} replace />
+              )
             }
           ></Route>
-          <Route path="/products/:id" element={<ProductPage />}></Route>
+          <Route
+            path={`${staticServerUri}/products/:id`}
+            element={<ProductPage />}
+          ></Route>
           <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
       </BrowserRouter>
