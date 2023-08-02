@@ -10,10 +10,12 @@ const Container = styled.div`
   top: 80px;
 `;
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const CAROUSEL_IMAGES = [
-  "../../../assets/carouselItem1.jpeg",
-  "../../../assets/carouselItem2.jpeg",
-  "../../../assets/carouselItem3.jpeg",
+  `${staticServerUri}../../../assets/carouselItem1.jpeg`,
+  `${staticServerUri}../../../assets/carouselItem2.jpeg`,
+  `${staticServerUri}../../../assets/carouselItem3.jpeg`,
 ];
 
 const Carousel = () => {

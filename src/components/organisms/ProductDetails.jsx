@@ -54,7 +54,7 @@ const ProductDetails = () => {
         <ProductDetailsContainer
           photo={
             <ProductPhoto
-              src={`${process.env.REACT_APP_BASE_URL}${productDetails.image}`}
+              src={`${staticServerUri}${productDetails.image}`}
               alt={productDetails.productName}
             />
           }

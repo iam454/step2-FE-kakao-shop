@@ -17,7 +17,11 @@ const Nav = () => {
   return (
     <StyledUl>
       <Link to={`${staticServerUri}/cart`}>
-        <img src="../../../assets/cart.png" alt="장바구니" width={28} />
+        <img
+          src={`${staticServerUri}../../../assets/cart.png`}
+          alt="장바구니"
+          width={28}
+        />
       </Link>
       {isLoggedIn ? (
         <li>
