@@ -18,7 +18,7 @@ const NavBar = () => {
     <Container>
       <Link to={`${staticServerUri}/`}>
         <img
-          src={`${staticServerUri}../../../assets/logoKakao.png`}
+          src={`${staticServerUri}/../../../assets/logoKakao.png`}
           alt="카카오 쇼핑하기"
           width={120}
         />
