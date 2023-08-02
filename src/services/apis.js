@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const commonInstance = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL,
+  baseURL: "/api/",
   timeout: 1000,
   headers: {
     "Content-Type": "application/json",
@@ -17,7 +17,7 @@ export const fetchProductById = ({ id }) => {
 };
 
 export const authInstance = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL,
+  baseURL: "/api/",
   timeout: 1000,
   headers: {
     "Content-Type": "application/json",
